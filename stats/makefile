@@ -1,8 +1,8 @@
 CC=gcc
 
-all: gui
+all: gui test
 
-.PHONY: gui
+.PHONY: gui test
 
 gui:
 	$(CC) -c src/stats.c  -o ../build/stats.o

@@ -54,7 +54,7 @@ bool initGui(PLAYING_WINDOW* the_game)
 	{
 
 		the_game->gWindow = SDL_CreateWindow( "Mini Golf by Slimpa", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN );
-		/*if( the_game->gWindow == NULL )
+		if( the_game->gWindow == NULL )
 		{
 			printf( "Window could not be created! SDL_Error: %s\n", SDL_GetError() );
 			success = false;
@@ -63,7 +63,7 @@ bool initGui(PLAYING_WINDOW* the_game)
 		{
 
 			the_game->gScreenSurface = SDL_GetWindowSurface( the_game->gWindow );
-		}*/
+		}
 	}
 
 	return success;

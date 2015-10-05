@@ -1,2 +1,2 @@
 all:
-	gcc -o  ../../build/player.o
+	gcc -o ../runall unity.o unity_fixture.o ../../build/player.o runall.o player_tests.o

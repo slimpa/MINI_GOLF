@@ -1,8 +1,12 @@
 CC=gcc
 
-all: player
+all: player tests build
 
-.PHONY: player
+.PHONY: player tests build
 
-gui:
+player:
 	$(CC) -c src/player.c  -o ../build/player.o
+tests:
+	$(MAKE) -C tests all
+build:
+	$(MAKE) -C build all
