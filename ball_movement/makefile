@@ -1,9 +1,12 @@
-all: ball test
+CC=gcc
 
-.PHONY:	ball test
+all: ball tests build
+
+.PHONY:	ball tests build
 
 ball:
-	gcc -c src/ball_movement.c -o ../build/ball_movement.o
-
-test:
+	$(CC) -c src/ball_movement.c -I/usr/include/SDL2 -lSDL2 -o ../build/ball_movement.o
+tests:
 	$(MAKE) -C tests all
+build:
+	$(MAKE) -C build all

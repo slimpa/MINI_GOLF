@@ -1,4 +1,5 @@
 Modul Player
 
-1. Test: Alociranje memorije za PLAYER
-2. Test: 
+~~1. Test: Alociranje memorije za PLAYER~~
+~~2. Test: Prazno polje za ime~~
+~~3. Test: Vise od dozvoljenog broja znakova za ime~~

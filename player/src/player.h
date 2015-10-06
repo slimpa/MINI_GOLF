@@ -12,4 +12,5 @@ typedef struct player
 
 PLAYER* playerCreate(void);
 void assignPlayerName(PLAYER* player, char *name);
+
 #endif

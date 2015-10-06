@@ -3,12 +3,19 @@
 PLAYER* playerCreate(void)
 {
     PLAYER* player = (PLAYER*) malloc( sizeof(PLAYER) );
-    //assignPlayerName(player, " ");
     return player;
 }
 
 void assignPlayerName(PLAYER* player, char *name)
 {
-    name=" ";
-    strcpy(player->name, name);
+    if(strlen(name) > 10)
+    {
+        name="Player";
+        strcpy(player->name, name);
+    }
+    else
+    {
+        strcpy(player->name, name);
+    }
+
 }

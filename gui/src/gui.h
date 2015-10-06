@@ -16,6 +16,8 @@ typedef struct playing_window
     SDL_Surface* gBackground;
     SDL_Surface* gHole;
     SDL_Surface* gBall;
+    SDL_Surface* gCongratulations;
+    SDL_Surface* gPlayer;
 
 } PLAYING_WINDOW;
 

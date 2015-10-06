@@ -18,10 +18,11 @@ void oslobodi(PLAYING_WINDOW* the_game)
 bool loadMedia(PLAYING_WINDOW* the_game)
 {
 	bool success = true;
-
-	the_game->gBackground = SDL_LoadBMP( "../resources/green.bmp" );
-    the_game->gBall = SDL_LoadBMP( "../resources/ball.bmp");
-    the_game->gHole = SDL_LoadBMP( "../resources/hole.bmp");
+	the_game->gPlayer = NULL;
+	the_game->gCongratulations = SDL_LoadBMP("resources/congratulations.bmp");
+	the_game->gBackground = SDL_LoadBMP( "resources/green.bmp" );
+    the_game->gBall = SDL_LoadBMP( "resources/golf_ball.bmp");
+    the_game->gHole = SDL_LoadBMP( "resources/hole.bmp");
 	if( the_game->gBackground == NULL )
 	{
 		printf( "Unable to load image %s! SDL Error: %s\n", "../resources/green.bmp", SDL_GetError() );
@@ -52,7 +53,6 @@ bool initGui(PLAYING_WINDOW* the_game)
 	}
 	else
 	{
-
 		the_game->gWindow = SDL_CreateWindow( "Mini Golf by Slimpa", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN );
 		if( the_game->gWindow == NULL )
 		{
@@ -64,6 +64,7 @@ bool initGui(PLAYING_WINDOW* the_game)
 
 			the_game->gScreenSurface = SDL_GetWindowSurface( the_game->gWindow );
 		}
+
 	}
 
 	return success;
