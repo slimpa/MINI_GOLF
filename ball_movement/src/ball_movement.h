@@ -5,7 +5,7 @@
 #include <stdbool.h>
 
 
-SDL_Rect ball_move(SDL_Rect current_position);
+SDL_Rect ballMove(SDL_Rect current_position);
 bool isBallInHole(SDL_Rect current_position, SDL_Rect hole_position);
 
 #endif

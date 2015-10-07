@@ -23,6 +23,9 @@ bool loadMedia(PLAYING_WINDOW* the_game)
 	the_game->gBackground = SDL_LoadBMP( "resources/green.bmp" );
     the_game->gBall = SDL_LoadBMP( "resources/golf_ball.bmp");
     the_game->gHole = SDL_LoadBMP( "resources/hole.bmp");
+
+	Uint32 colorkey = SDL_MapRGB( the_game->gHole -> format, 150, 150, 150);
+	SDL_SetColorKey(the_game->gHole, SDL_TRUE, colorkey);
 	if( the_game->gBackground == NULL )
 	{
 		printf( "Unable to load image %s! SDL Error: %s\n", "../resources/green.bmp", SDL_GetError() );

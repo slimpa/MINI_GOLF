@@ -36,7 +36,7 @@ int main( int argc, char* args[] )
         {
             SDL_BlitSurface( game->gBall, NULL, game->gScreenSurface, &ball );
             SDL_UpdateWindowSurface( game->gWindow );
-            ball = ball_move(ball);
+            ball = ballMove(ball);
             if(isBallInHole(ball,hole))
             SDL_BlitSurface( game->gCongratulations, NULL, game->gScreenSurface, NULL);
             SDL_Delay (20);
@@ -47,7 +47,7 @@ int main( int argc, char* args[] )
 		SDL_Delay( 2000 );
 	}
 
-	//oslobodi(game);
+	oslobodi(game);
 
 	return 0;
 }

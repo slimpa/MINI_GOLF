@@ -1,6 +1,6 @@
 #include "ball_movement.h"
 
-SDL_Rect ball_move(SDL_Rect current_position)
+SDL_Rect ballMove(SDL_Rect current_position)
 {
     SDL_Rect temp;
     temp.x = current_position.x + 1;
