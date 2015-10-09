@@ -19,6 +19,7 @@ TEST_SETUP(PlayerTest)
 
 TEST_TEAR_DOWN(PlayerTest)
 {
+	
 }
 
 TEST(PlayerTest, TestAllocatePlayer)

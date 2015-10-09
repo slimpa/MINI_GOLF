@@ -31,7 +31,9 @@ int main( int argc, char* args[] )
 		SDL_BlitSurface( game->gBackground, NULL, game->gScreenSurface, NULL );
         SDL_BlitSurface( game->gHole, NULL, game->gScreenSurface, &hole);
         SDL_BlitSurface( game->gBall, NULL, game->gScreenSurface, &ball );
-
+        SDL_UpdateWindowSurface( game->gWindow );
+        if(mouseEvents(game->gBall))
+        {
         for(i = 50;i < 500;i++)
         {
             SDL_BlitSurface( game->gBall, NULL, game->gScreenSurface, &ball );
@@ -42,7 +44,7 @@ int main( int argc, char* args[] )
             SDL_Delay (20);
         }
         SDL_UpdateWindowSurface( game->gWindow );
-
+        }
 
 		SDL_Delay( 2000 );
 	}

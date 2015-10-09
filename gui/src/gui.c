@@ -20,12 +20,12 @@ bool loadMedia(PLAYING_WINDOW* the_game)
 	bool success = true;
 	the_game->gPlayer = NULL;
 	the_game->gCongratulations = SDL_LoadBMP("resources/congratulations.bmp");
-	the_game->gBackground = SDL_LoadBMP( "resources/green.bmp" );
-    the_game->gBall = SDL_LoadBMP( "resources/golf_ball.bmp");
+	the_game->gBackground = SDL_LoadBMP( "resources/background.bmp" );
+    the_game->gBall = SDL_LoadBMP( "resources/golf_ball1.bmp");
     the_game->gHole = SDL_LoadBMP( "resources/hole.bmp");
 
 	Uint32 colorkey = SDL_MapRGB( the_game->gHole -> format, 150, 150, 150);
-	SDL_SetColorKey(the_game->gHole, SDL_TRUE, colorkey);
+	SDL_SetColorKey(the_game->gHole, SDL_FALSE, colorkey);
 	if( the_game->gBackground == NULL )
 	{
 		printf( "Unable to load image %s! SDL Error: %s\n", "../resources/green.bmp", SDL_GetError() );
@@ -71,4 +71,59 @@ bool initGui(PLAYING_WINDOW* the_game)
 	}
 
 	return success;
+}
+bool mouseEvents(SDL_Surface* the_ball)
+{
+	SDL_Rect rect;
+	bool running = true;
+	Uint32 start;
+	int x;
+	int y;
+	rect.x = 50;
+	rect.y = 240;
+	rect.w = 30;
+	rect.h = 30;
+	Uint32 color2 = SDL_MapRGB(the_ball->format, 0xff,0xff,0xff);
+	Uint32 color = SDL_MapRGB(the_ball->format, 0,0,0);
+	while(running) {
+		start = SDL_GetTicks();
+		SDL_Event event;
+		while(SDL_PollEvent(&event))
+		{
+			switch(event.type)
+			{
+			case SDL_MOUSEMOTION:
+				x=event.motion.x;
+				y=event.motion.y;
+				if(x>rect.x && x<rect.x+rect.w && y>rect.y && y<rect.y+rect.h)
+				{
+					printf("over\n");
+				}
+				else
+				{
+					printf("notover\n");
+				}
+
+			case SDL_MOUSEBUTTONDOWN:
+				x = event.button.x;
+				y = event.button.y;
+				if(x>rect.x && x<rect.x+rect.w && y>rect.y && y<rect.y+rect.h && event.button.button==SDL_BUTTON_LEFT)
+				{
+					printf("down\n");
+				}
+
+			case SDL_MOUSEBUTTONUP:
+				x = event.button.x;
+				y = event.button.y;
+				if(x>rect.x && x<rect.x+rect.w && y>rect.y && y<rect.y+rect.h && event.button.button==SDL_BUTTON_LEFT)
+				{
+					printf("up\n");
+					return true;
+				}
+
+							}
+			}
+
+			SDL_FillRect(the_ball, &rect, color);
+		}
 }

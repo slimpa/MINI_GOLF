@@ -21,7 +21,7 @@ typedef struct playing_window
 
 } PLAYING_WINDOW;
 
-
+bool mouseEvents(SDL_Surface* the_ball);
 bool initGui(PLAYING_WINDOW* the_game);
 void oslobodi(PLAYING_WINDOW* the_game);
 bool loadMedia(PLAYING_WINDOW* the_game);

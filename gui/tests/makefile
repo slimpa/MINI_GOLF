@@ -1,7 +1,7 @@
 all:gui_tests.o runall.o unity.o unity_fixture.o
 
 gui_tests.o:
-	gcc -c gui_tests.c -o ../../build/gui_tests.o
+	gcc -c gui_tests.c -I/usr/include/SDL2 -lSDL2 -o ../../build/gui_tests.o
 
 runall.o:
 	gcc -c runall.c -o ../../build/runall.o
